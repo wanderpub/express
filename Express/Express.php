@@ -27,15 +27,23 @@ class Express
      */
     protected $options;
 
-    public function __construct($cookie_path = '')
+    /**
+     * 初始化物流接口
+     *
+     * @param string $cookie_path cookie存放路径
+     * @param string $ip 当前IP地址
+     * @param integer $tryTimes 重试次数，默认3次
+     */
+    public function __construct($cookie_path = '', $ip = '101.69.230.179', $tryTimes = 3)
     {
         // 创建 CURL 请求模拟参数
-        $clentip = '101.69.230.179';
+        $clentip = $ip;
         if (!empty($cookie_path)) {
             $this->cookies = $cookie_path;
         } else {
             $this->cookies =  './cookie';
         }
+        $this->tryTimes = $tryTimes;
         $this->options = [
             'cookie_file' => $this->cookies,
             'headers' => [
