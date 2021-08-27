@@ -36,19 +36,23 @@ include "您的目录/Express/include.php";
 ```php
 // 参考https://m.baidu.com/s?word=快递
 try {
-    //快递单号
     $number = 'YT5744661853493';
 
     //cookie存放路径
     $cookiePath = __DIR__ . '/cookie';
-    $express = new \Express\Express($cookiePath);
+    //错误重试次数
+    $tryTimes = 3;
+    //ip地址
+    $ip = '101.69.230.179';
+    $express = new \Express\Express($cookiePath, $ip, $tryTimes);
     //取快递公司列表
     $res = $express->getExpressList();
     print_r($res);
-    
+
     //取快递物流信息
     $res = $express->express($number);
     print_r($res);
+
 } catch (\Exception $e) {
     echo $e->getMessage();
 }
