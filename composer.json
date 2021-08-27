@@ -1,0 +1,29 @@
+{
+    "type": "library",
+    "name": "wander/express",
+    "homepage": "https://github.com/wanderpub/express.git",
+    "description": "百度快递100物流查询--PHP版",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "wander",
+            "email": "13834563@qq.com"
+        }
+    ],
+    "keywords": [
+        "express",
+        "快递100",
+        "百度物流查询"
+    ],
+    "require": {
+        "php": ">=7.1",
+        "ext-json": "*",
+        "ext-curl": "*",
+        "ext-mbstring": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Express\\": "Express"
+        }
+    }
+}
